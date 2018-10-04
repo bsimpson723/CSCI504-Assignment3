@@ -15,6 +15,15 @@ namespace Assignment3
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            foreach (string mj in Program.m_majors)
+            {
+                major_combo.Items.Add(mj);
+            }
         }
     }
 }

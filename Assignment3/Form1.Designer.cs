@@ -241,9 +241,20 @@
             // threshGrade_combo
             // 
             this.threshGrade_combo.FormattingEnabled = true;
+            this.threshGrade_combo.Items.AddRange(new object[] {
+            "A",
+            "A-",
+            "B+",
+            "B",
+            "B-",
+            "C++",
+            "C",
+            "C-",
+            "D",
+            "F"});
             this.threshGrade_combo.Location = new System.Drawing.Point(176, 158);
             this.threshGrade_combo.Name = "threshGrade_combo";
-            this.threshGrade_combo.Size = new System.Drawing.Size(38, 21);
+            this.threshGrade_combo.Size = new System.Drawing.Size(49, 21);
             this.threshGrade_combo.TabIndex = 14;
             // 
             // threshGrade_label
@@ -297,6 +308,7 @@
             this.major_combo.Name = "major_combo";
             this.major_combo.Size = new System.Drawing.Size(121, 21);
             this.major_combo.TabIndex = 20;
+            this.major_combo.Text = "-- Select Major --";
             // 
             // failedByMajorCourse_label
             // 
@@ -436,9 +448,20 @@
             // passGrade_combo
             // 
             this.passGrade_combo.FormattingEnabled = true;
+            this.passGrade_combo.Items.AddRange(new object[] {
+            "A",
+            "A-",
+            "B+",
+            "B",
+            "B-",
+            "C++",
+            "C",
+            "C-",
+            "D",
+            "F"});
             this.passGrade_combo.Location = new System.Drawing.Point(176, 591);
             this.passGrade_combo.Name = "passGrade_combo";
-            this.passGrade_combo.Size = new System.Drawing.Size(38, 21);
+            this.passGrade_combo.Size = new System.Drawing.Size(49, 21);
             this.passGrade_combo.TabIndex = 30;
             // 
             // percentage_upDown

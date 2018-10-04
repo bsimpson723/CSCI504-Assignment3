@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,8 @@ namespace Assignment3
         public static BindingList<Student> m_students = new BindingList<Student>();
         public static BindingList<string> m_majors = new BindingList<string>();
         public static BindingList<string> m_years = new BindingList<string>(Enum.GetNames(typeof(AcademicYear)));
-        
+        public static BindingList<StudentGrade> m_studentGrades = new BindingList<StudentGrade>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -24,6 +26,7 @@ namespace Assignment3
             m_courses = InitializeCourses();
             m_students = InitializeStudents();
             m_majors = InitializeMajors();
+            m_studentGrades = InitializeStudentGrades();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
@@ -109,6 +112,32 @@ namespace Assignment3
 
             var bindedMajors = new BindingList<string>(sortedMajors);
             return bindedMajors;
+        }
+        #endregion
+        #region InitializeGrades
+        //loads a list of Student Grades from the input file
+        private static BindingList<StudentGrade> InitializeStudentGrades()
+        {
+            var grades = new List<StudentGrade>();
+            // check opening file successfully
+            try
+            {
+                var file = File.ReadAllLines("StudentGrades.txt");
+                foreach (var line in file)
+                {
+                    var fields = line.Split(',');
+                    var grade = new StudentGrade(Convert.ToUInt32(fields[0]), fields[1], Convert.ToUInt32(fields[2]), fields[3]);
+                    grades.Add(grade);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Can't read Grades.txt file.");
+                return null;
+            }
+
+            var bindedGrades = new BindingList<StudentGrade>(grades);
+            return bindedGrades;
         }
         #endregion
     }
