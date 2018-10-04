@@ -99,6 +99,7 @@
             // 
             // queryResult_textBox
             // 
+            this.queryResult_textBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.queryResult_textBox.Location = new System.Drawing.Point(478, 39);
             this.queryResult_textBox.Name = "queryResult_textBox";
             this.queryResult_textBox.ReadOnly = true;
@@ -150,6 +151,7 @@
             this.showGradeReportStudent_button.TabIndex = 5;
             this.showGradeReportStudent_button.Text = "Show Results";
             this.showGradeReportStudent_button.UseVisualStyleBackColor = true;
+            this.showGradeReportStudent_button.Click += new System.EventHandler(this.showGradeReportStudent_button_Click);
             // 
             // gradeThresh_label
             // 
