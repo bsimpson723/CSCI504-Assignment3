@@ -211,6 +211,7 @@
             // threshLessThan_radio
             // 
             this.threshLessThan_radio.AutoSize = true;
+            this.threshLessThan_radio.Checked = true;
             this.threshLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.threshLessThan_radio.Name = "threshLessThan_radio";
             this.threshLessThan_radio.Size = new System.Drawing.Size(133, 17);
@@ -236,7 +237,6 @@
             this.threshGreaterThan_radio.Name = "threshGreaterThan_radio";
             this.threshGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.threshGreaterThan_radio.TabIndex = 13;
-            this.threshGreaterThan_radio.TabStop = true;
             this.threshGreaterThan_radio.Text = "Greater Than or Equal To";
             this.threshGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
@@ -381,13 +381,13 @@
             this.failGreaterThan_radio.Name = "failGreaterThan_radio";
             this.failGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.failGreaterThan_radio.TabIndex = 13;
-            this.failGreaterThan_radio.TabStop = true;
             this.failGreaterThan_radio.Text = "Greater Than or Equal To";
             this.failGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
             // failLessThan_radio
             // 
             this.failLessThan_radio.AutoSize = true;
+            this.failLessThan_radio.Checked = true;
             this.failLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.failLessThan_radio.Name = "failLessThan_radio";
             this.failLessThan_radio.Size = new System.Drawing.Size(133, 17);
@@ -423,13 +423,13 @@
             this.passGreaterThan_radio.Name = "passGreaterThan_radio";
             this.passGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.passGreaterThan_radio.TabIndex = 13;
-            this.passGreaterThan_radio.TabStop = true;
             this.passGreaterThan_radio.Text = "Greater Than or Equal To";
             this.passGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
             // passLessThan_radio
             // 
             this.passLessThan_radio.AutoSize = true;
+            this.passLessThan_radio.Checked = true;
             this.passLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.passLessThan_radio.Name = "passLessThan_radio";
             this.passLessThan_radio.Size = new System.Drawing.Size(133, 17);
