@@ -198,5 +198,102 @@ namespace Assignment3
             // print appended stringbuilder to textbox
             queryResult_textBox.Text = builder.ToString();
         }
+        
+                private void showFailedByMajorReport_button_Click(object sender, EventArgs e)
+        {
+            // check whether selected a major
+            if (major_combo.SelectedIndex == -1)
+            {
+                queryResult_textBox.Text = "Error: Please select a major to search by.";
+                return;
+            }
+
+            // check whether typed course is valid
+            if (!validateCourseEntry(failedByMajorCourse_textBox.Text))
+            {
+                return;
+            }
+
+            //Get List and Build String for query results box
+            var builder = new StringBuilder();
+            var failMajorReportTitle = String.Format("Fail Report of Majors ({0}) in {1}", major_combo.SelectedValue, failedByMajorCourse_textBox.Text);
+            builder.Append(failMajorReportTitle);
+            builder.Append(Environment.NewLine);
+            builder.Append("-------------------------------------------------------------------------");
+            builder.Append(Environment.NewLine);
+
+            var majorStudents = Program.m_students.ToList()
+                .FindAll(x => x.Major == major_combo.SelectedItem.ToString())
+                .Select(x => x.ZId);
+
+            String[] words = failedByMajorCourse_textBox.Text.Split(' ');
+            var failMajorGrades = Program.m_studentGrades.ToList()
+                .FindAll(x => x.DepartmentCode == words[0].ToUpper() && x.CourseNumber.ToString() == words[1] && x.Grade == "F")
+                .FindAll(x => majorStudents.Contains(x.ZId))
+                .OrderBy(x => x.ZId);
+
+            // check whether matching grades empty
+            if (!failMajorGrades.Any())
+            {
+                builder.Append("No student matched the query criteria.");
+                builder.Append(Environment.NewLine);
+            }
+            else
+            {
+                foreach (var failed in failMajorGrades)
+                {
+                    builder.Append(failed);
+                    builder.Append(Environment.NewLine);
+                }
+            }
+
+            builder.Append(Environment.NewLine);
+            builder.Append("### END RESULTS ###");
+
+            // print appended stringbuilder to textbox
+            queryResult_textBox.Text = builder.ToString();
+        }
+
+        private void showGradeReportCourse_button_Click(object sender, EventArgs e)
+        {
+            // check whether typed course is valid
+            if (!validateCourseEntry(gradeReportByCourseInput_textBox.Text))
+            {
+                return;
+            }
+
+            //Get List and Build String for query results box
+            var builder = new StringBuilder();
+            var failMajorReportTitle = String.Format("Grade Report for ({0})", gradeReportByCourseInput_textBox.Text);
+            builder.Append(failMajorReportTitle);
+            builder.Append(Environment.NewLine);
+            builder.Append("-------------------------------------------------------------------------");
+            builder.Append(Environment.NewLine);
+            String[] words = gradeReportByCourseInput_textBox.Text.Split(' ');
+            var courseGrades = Program.m_studentGrades.ToList()
+                .FindAll(x => x.DepartmentCode == words[0].ToUpper() && x.CourseNumber.ToString() == words[1])
+                .OrderBy(x => x.ZId);
+
+            // check whether matching grades empty
+            if (!courseGrades.Any())
+            {
+                builder.Append("No grades matched the query criteria.");
+                builder.Append(Environment.NewLine);
+            }
+            else
+            {
+                foreach (var cg in courseGrades)
+                {
+                    builder.Append(cg);
+                    builder.Append(Environment.NewLine);
+                }
+            }
+
+            builder.Append(Environment.NewLine);
+            builder.Append("### END RESULTS ###");
+
+            // print appended stringbuilder to textbox
+            queryResult_textBox.Text = builder.ToString();
+        }
     }
 }
