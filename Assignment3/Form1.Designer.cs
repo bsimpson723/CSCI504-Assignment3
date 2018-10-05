@@ -171,6 +171,7 @@
             this.showGradeThresh_button.TabIndex = 7;
             this.showGradeThresh_button.Text = "Show Results";
             this.showGradeThresh_button.UseVisualStyleBackColor = true;
+            this.showGradeThresh_button.Click += new System.EventHandler(this.showGradeThresh_button_Click);
             // 
             // showGradeReportCourse_button
             // 

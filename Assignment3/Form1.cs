@@ -79,5 +79,34 @@ namespace Assignment3
             //Assign builder to rich text box
             queryResult_textBox.Text = builder.ToString();
         }
+
+        private void showGradeThresh_button_Click(object sender, EventArgs e)
+        {
+            if (validateCourseEntry(threshCourse_textBox.Text))
+            {
+
+            }
+        }
+
+        private bool validateCourseEntry(string course)
+        {
+            string[] words = course.Split('-');
+            if (words.Length < 2)
+            {
+                //print error if input is not formatted correctly
+                queryResult_textBox.Text = string.Format("'{0}' doesn't follow required format.", course);
+                return false;
+            }
+            Course foundCourse = Program.m_courses.ToList().Find(x =>
+                x.DepartmentCode.ToUpper() == words[0].ToUpper() && x.CourseNumber == Convert.ToUInt64(words[1]));
+            // check whether found the course
+            if (foundCourse == null)
+            {
+                queryResult_textBox.Text = string.Format("Course {0} does not exist.", course);
+                return false;
+            }
+
+            return true;
+        }
     }
 }
