@@ -50,5 +50,10 @@ namespace Assignment3
             CourseNumber = courseNum;
             Grade = grade;
         }
+
+        public override string ToString()
+        {
+            return string.Format("z{0}  |  {1}-{2}  |  {3}", ZId, DepartmentCode, CourseNumber, Grade);
+        }
     }
 }

@@ -99,6 +99,7 @@
             // 
             // queryResult_textBox
             // 
+            this.queryResult_textBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.queryResult_textBox.Location = new System.Drawing.Point(478, 39);
             this.queryResult_textBox.Name = "queryResult_textBox";
             this.queryResult_textBox.ReadOnly = true;
@@ -150,6 +151,7 @@
             this.showGradeReportStudent_button.TabIndex = 5;
             this.showGradeReportStudent_button.Text = "Show Results";
             this.showGradeReportStudent_button.UseVisualStyleBackColor = true;
+            this.showGradeReportStudent_button.Click += new System.EventHandler(this.showGradeReportStudent_button_Click);
             // 
             // gradeThresh_label
             // 
@@ -169,6 +171,7 @@
             this.showGradeThresh_button.TabIndex = 7;
             this.showGradeThresh_button.Text = "Show Results";
             this.showGradeThresh_button.UseVisualStyleBackColor = true;
+            this.showGradeThresh_button.Click += new System.EventHandler(this.showGradeThresh_button_Click);
             // 
             // showGradeReportCourse_button
             // 
@@ -209,6 +212,7 @@
             // threshLessThan_radio
             // 
             this.threshLessThan_radio.AutoSize = true;
+            this.threshLessThan_radio.Checked = true;
             this.threshLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.threshLessThan_radio.Name = "threshLessThan_radio";
             this.threshLessThan_radio.Size = new System.Drawing.Size(133, 17);
@@ -234,7 +238,6 @@
             this.threshGreaterThan_radio.Name = "threshGreaterThan_radio";
             this.threshGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.threshGreaterThan_radio.TabIndex = 13;
-            this.threshGreaterThan_radio.TabStop = true;
             this.threshGreaterThan_radio.Text = "Greater Than or Equal To";
             this.threshGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
@@ -379,13 +382,13 @@
             this.failGreaterThan_radio.Name = "failGreaterThan_radio";
             this.failGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.failGreaterThan_radio.TabIndex = 13;
-            this.failGreaterThan_radio.TabStop = true;
             this.failGreaterThan_radio.Text = "Greater Than or Equal To";
             this.failGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
             // failLessThan_radio
             // 
             this.failLessThan_radio.AutoSize = true;
+            this.failLessThan_radio.Checked = true;
             this.failLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.failLessThan_radio.Name = "failLessThan_radio";
             this.failLessThan_radio.Size = new System.Drawing.Size(133, 17);
@@ -421,13 +424,13 @@
             this.passGreaterThan_radio.Name = "passGreaterThan_radio";
             this.passGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
             this.passGreaterThan_radio.TabIndex = 13;
-            this.passGreaterThan_radio.TabStop = true;
             this.passGreaterThan_radio.Text = "Greater Than or Equal To";
             this.passGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
             // passLessThan_radio
             // 
             this.passLessThan_radio.AutoSize = true;
+            this.passLessThan_radio.Checked = true;
             this.passLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.passLessThan_radio.Name = "passLessThan_radio";
             this.passLessThan_radio.Size = new System.Drawing.Size(133, 17);
