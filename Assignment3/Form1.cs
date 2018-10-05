@@ -84,14 +84,49 @@ namespace Assignment3
         {
             if (validateCourseEntry(threshCourse_textBox.Text))
             {
+                var builder = new StringBuilder();
+                string[] words = threshCourse_textBox.Text.Split(' ');
+                var reportTitle = string.Format("Grade Threshold Report for ({0} {1})", words[0], words[1]);
+                builder.Append(reportTitle);
+                builder.Append(Environment.NewLine);
+                builder.Append("-------------------------------------------------------------------------");
+                builder.Append(Environment.NewLine);
+                var grades = new List<StudentGrade>();
+                if (threshLessThan_radio.Checked)
+                {
+                    grades = Program.m_studentGrades.ToList()
+                        .FindAll(x => x.DepartmentCode == words[0] &&
+                                      x.CourseNumber == Convert.ToUInt64(words[1]) &&
+                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) >= 0)
+                        .OrderBy(x => x.ZId).ToList();
+                }
+                else
+                {
+                    grades = Program.m_studentGrades.ToList()
+                        .FindAll(x => x.DepartmentCode == words[0] &&
+                                      x.CourseNumber == Convert.ToUInt64(words[1]) &&
+                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) <= 0)
+                        .OrderBy(x => x.ZId).ToList();
+                }
 
+                if (!grades.Any())
+                {
+                    builder.Append("No results match your query.");
+                }
+                foreach (var grade in grades)
+                {
+                    builder.Append(grade);
+                    builder.Append(Environment.NewLine);
+                }
+
+                queryResult_textBox.Text = builder.ToString();
             }
         }
 
         private bool validateCourseEntry(string course)
         {
-            string[] words = course.Split('-');
-            if (words.Length < 2)
+            string[] words = course.Split(' ');
+            if (words.Length != 2)
             {
                 //print error if input is not formatted correctly
                 queryResult_textBox.Text = string.Format("'{0}' doesn't follow required format.", course);
