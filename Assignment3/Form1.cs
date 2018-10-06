@@ -12,6 +12,7 @@ namespace Assignment3
 {
     public partial class Form1 : Form
     {
+        private string[] m_gradeArray = new string[] {"A", "A-", "B+", "B", "B-", "C++", "C", "C-", "D", "F"};
         public Form1()
         {
             InitializeComponent();
@@ -91,13 +92,16 @@ namespace Assignment3
                 builder.Append(Environment.NewLine);
                 builder.Append("-------------------------------------------------------------------------");
                 builder.Append(Environment.NewLine);
+
+                var selectedGrade = threshGrade_combo.SelectedIndex;
+
                 var grades = new List<StudentGrade>();
                 if (threshLessThan_radio.Checked)
                 {
                     grades = Program.m_studentGrades.ToList()
                         .FindAll(x => x.DepartmentCode == words[0] &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
-                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) >= 0)
+                                      Array.IndexOf(m_gradeArray, x.Grade) >= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
                 }
                 else
@@ -105,7 +109,7 @@ namespace Assignment3
                     grades = Program.m_studentGrades.ToList()
                         .FindAll(x => x.DepartmentCode == words[0] &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
-                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) <= 0)
+                                      Array.IndexOf(m_gradeArray, x.Grade) <= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
                 }
 
@@ -118,6 +122,9 @@ namespace Assignment3
                     builder.Append(grade);
                     builder.Append(Environment.NewLine);
                 }
+
+                builder.Append(Environment.NewLine);
+                builder.Append("### END RESULTS ###");
 
                 queryResult_textBox.Text = builder.ToString();
             }
