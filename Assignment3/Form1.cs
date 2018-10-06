@@ -161,7 +161,7 @@ namespace Assignment3
 
             //Get List and Build String for query results box
             var builder = new StringBuilder();
-            var failMajorReportTitle = String.Format("Fail Report of Majors ({0}) in {1}", major_combo.SelectedValue, failedByMajorCourse_textBox.Text);
+            var failMajorReportTitle = String.Format("Fail Report of Majors ({0}) in {1}", major_combo.SelectedItem, failedByMajorCourse_textBox.Text);
             builder.Append(failMajorReportTitle);
             builder.Append(Environment.NewLine);
             builder.Append("-------------------------------------------------------------------------");
@@ -173,7 +173,9 @@ namespace Assignment3
 
             String[] words = failedByMajorCourse_textBox.Text.Split(' ');
             var failMajorGrades = Program.m_studentGrades.ToList()
-                .FindAll(x => x.DepartmentCode == words[0].ToUpper() && x.CourseNumber.ToString() == words[1] && x.Grade == "F")
+                .FindAll(x => x.DepartmentCode == words[0].ToUpper() && 
+                              x.CourseNumber.ToString() == words[1] && 
+                              x.Grade == "F")
                 .FindAll(x => majorStudents.Contains(x.ZId))
                 .OrderBy(x => x.ZId);
 
