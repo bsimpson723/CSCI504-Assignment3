@@ -93,9 +93,12 @@ namespace Assignment3
                 builder.Append("-------------------------------------------------------------------------");
                 builder.Append(Environment.NewLine);
 
+                //get index and use it as comparison to index of m_gradeArray
                 var selectedGrade = threshGrade_combo.SelectedIndex;
 
                 var grades = new List<StudentGrade>();
+
+                //Get all student grades below the given threshold
                 if (threshLessThan_radio.Checked)
                 {
                     grades = Program.m_studentGrades.ToList()
@@ -104,6 +107,8 @@ namespace Assignment3
                                       Array.IndexOf(m_gradeArray, x.Grade) >= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
                 }
+
+                //OR get all student grades above the given threshold
                 else
                 {
                     grades = Program.m_studentGrades.ToList()
@@ -374,11 +379,17 @@ namespace Assignment3
         #region Utility Functions
         private bool validateCourseEntry(string course)
         {
+            if (course.Length == 0)
+            {
+                //print error if no input is provided for the course
+                queryResult_textBox.Text = "Error: Please enter a course to search by.";
+                return false;
+            }
             string[] words = course.Split(' ');
             if (words.Length != 2)
             {
                 //print error if input is not formatted correctly
-                queryResult_textBox.Text = string.Format("'{0}' doesn't follow required format.", course);
+                queryResult_textBox.Text = string.Format("Error: '{0}' doesn't follow required format.", course);
                 return false;
             }
             Course foundCourse = Program.m_courses.ToList().Find(x =>

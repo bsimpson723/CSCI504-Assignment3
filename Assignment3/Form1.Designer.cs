@@ -141,14 +141,14 @@
             this.zID_textBox.Location = new System.Drawing.Point(46, 40);
             this.zID_textBox.Name = "zID_textBox";
             this.zID_textBox.Size = new System.Drawing.Size(124, 20);
-            this.zID_textBox.TabIndex = 4;
+            this.zID_textBox.TabIndex = 1;
             // 
             // showGradeReportStudent_button
             // 
             this.showGradeReportStudent_button.Location = new System.Drawing.Point(375, 39);
             this.showGradeReportStudent_button.Name = "showGradeReportStudent_button";
             this.showGradeReportStudent_button.Size = new System.Drawing.Size(97, 21);
-            this.showGradeReportStudent_button.TabIndex = 5;
+            this.showGradeReportStudent_button.TabIndex = 2;
             this.showGradeReportStudent_button.Text = "Show Results";
             this.showGradeReportStudent_button.UseVisualStyleBackColor = true;
             this.showGradeReportStudent_button.Click += new System.EventHandler(this.showGradeReportStudent_button_Click);
@@ -168,7 +168,7 @@
             this.showGradeThresh_button.Location = new System.Drawing.Point(375, 158);
             this.showGradeThresh_button.Name = "showGradeThresh_button";
             this.showGradeThresh_button.Size = new System.Drawing.Size(97, 21);
-            this.showGradeThresh_button.TabIndex = 7;
+            this.showGradeThresh_button.TabIndex = 8;
             this.showGradeThresh_button.Text = "Show Results";
             this.showGradeThresh_button.UseVisualStyleBackColor = true;
             this.showGradeThresh_button.Click += new System.EventHandler(this.showGradeThresh_button_Click);
@@ -178,7 +178,7 @@
             this.showGradeReportCourse_button.Location = new System.Drawing.Point(375, 374);
             this.showGradeReportCourse_button.Name = "showGradeReportCourse_button";
             this.showGradeReportCourse_button.Size = new System.Drawing.Size(97, 20);
-            this.showGradeReportCourse_button.TabIndex = 8;
+            this.showGradeReportCourse_button.TabIndex = 13;
             this.showGradeReportCourse_button.Text = "Show Results";
             this.showGradeReportCourse_button.UseVisualStyleBackColor = true;
             this.showGradeReportCourse_button.Click += new System.EventHandler(this.showGradeReportCourse_button_Click);
@@ -188,7 +188,7 @@
             this.showFailedByMajorReport_button.Location = new System.Drawing.Point(375, 260);
             this.showFailedByMajorReport_button.Name = "showFailedByMajorReport_button";
             this.showFailedByMajorReport_button.Size = new System.Drawing.Size(97, 20);
-            this.showFailedByMajorReport_button.TabIndex = 9;
+            this.showFailedByMajorReport_button.TabIndex = 11;
             this.showFailedByMajorReport_button.Text = "Show Results";
             this.showFailedByMajorReport_button.UseVisualStyleBackColor = true;
             this.showFailedByMajorReport_button.Click += new System.EventHandler(this.showFailedByMajorReport_button_Click);
@@ -198,7 +198,7 @@
             this.showAllPassReport_button.Location = new System.Drawing.Point(375, 592);
             this.showAllPassReport_button.Name = "showAllPassReport_button";
             this.showAllPassReport_button.Size = new System.Drawing.Size(97, 20);
-            this.showAllPassReport_button.TabIndex = 10;
+            this.showAllPassReport_button.TabIndex = 23;
             this.showAllPassReport_button.Text = "Show Results";
             this.showAllPassReport_button.UseVisualStyleBackColor = true;
             this.showAllPassReport_button.Click += new System.EventHandler(this.showAllPassReport_button_Click);
@@ -208,7 +208,7 @@
             this.showAllFailReport_button.Location = new System.Drawing.Point(375, 486);
             this.showAllFailReport_button.Name = "showAllFailReport_button";
             this.showAllFailReport_button.Size = new System.Drawing.Size(97, 20);
-            this.showAllFailReport_button.TabIndex = 11;
+            this.showAllFailReport_button.TabIndex = 18;
             this.showAllFailReport_button.Text = "Show Results";
             this.showAllFailReport_button.UseVisualStyleBackColor = true;
             this.showAllFailReport_button.Click += new System.EventHandler(this.showAllFailReport_button_Click);
@@ -220,7 +220,7 @@
             this.threshLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.threshLessThan_radio.Name = "threshLessThan_radio";
             this.threshLessThan_radio.Size = new System.Drawing.Size(133, 17);
-            this.threshLessThan_radio.TabIndex = 12;
+            this.threshLessThan_radio.TabIndex = 4;
             this.threshLessThan_radio.TabStop = true;
             this.threshLessThan_radio.Text = "Less Than or Equal To";
             this.threshLessThan_radio.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             this.threshRadio_groupBox.Location = new System.Drawing.Point(15, 110);
             this.threshRadio_groupBox.Name = "threshRadio_groupBox";
             this.threshRadio_groupBox.Size = new System.Drawing.Size(155, 70);
-            this.threshRadio_groupBox.TabIndex = 13;
+            this.threshRadio_groupBox.TabIndex = 3;
             this.threshRadio_groupBox.TabStop = false;
             // 
             // threshGreaterThan_radio
@@ -241,7 +241,7 @@
             this.threshGreaterThan_radio.Location = new System.Drawing.Point(6, 42);
             this.threshGreaterThan_radio.Name = "threshGreaterThan_radio";
             this.threshGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
-            this.threshGreaterThan_radio.TabIndex = 13;
+            this.threshGreaterThan_radio.TabIndex = 5;
             this.threshGreaterThan_radio.Text = "Greater Than or Equal To";
             this.threshGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
@@ -262,7 +262,7 @@
             this.threshGrade_combo.Location = new System.Drawing.Point(176, 158);
             this.threshGrade_combo.Name = "threshGrade_combo";
             this.threshGrade_combo.Size = new System.Drawing.Size(49, 21);
-            this.threshGrade_combo.TabIndex = 14;
+            this.threshGrade_combo.TabIndex = 6;
             // 
             // threshGrade_label
             // 
@@ -287,7 +287,7 @@
             this.threshCourse_textBox.Location = new System.Drawing.Point(229, 159);
             this.threshCourse_textBox.Name = "threshCourse_textBox";
             this.threshCourse_textBox.Size = new System.Drawing.Size(140, 20);
-            this.threshCourse_textBox.TabIndex = 17;
+            this.threshCourse_textBox.TabIndex = 7;
             // 
             // failedCourseByMajor_label
             // 
@@ -314,7 +314,7 @@
             this.major_combo.Location = new System.Drawing.Point(15, 259);
             this.major_combo.Name = "major_combo";
             this.major_combo.Size = new System.Drawing.Size(121, 21);
-            this.major_combo.TabIndex = 20;
+            this.major_combo.TabIndex = 9;
             this.major_combo.Text = "-- Select Major --";
             // 
             // failedByMajorCourse_label
@@ -331,7 +331,7 @@
             this.failedByMajorCourse_textBox.Location = new System.Drawing.Point(229, 260);
             this.failedByMajorCourse_textBox.Name = "failedByMajorCourse_textBox";
             this.failedByMajorCourse_textBox.Size = new System.Drawing.Size(140, 20);
-            this.failedByMajorCourse_textBox.TabIndex = 22;
+            this.failedByMajorCourse_textBox.TabIndex = 10;
             // 
             // gradeReportByCourse_label
             // 
@@ -357,7 +357,7 @@
             this.gradeReportByCourseInput_textBox.Location = new System.Drawing.Point(15, 374);
             this.gradeReportByCourseInput_textBox.Name = "gradeReportByCourseInput_textBox";
             this.gradeReportByCourseInput_textBox.Size = new System.Drawing.Size(140, 20);
-            this.gradeReportByCourseInput_textBox.TabIndex = 25;
+            this.gradeReportByCourseInput_textBox.TabIndex = 12;
             // 
             // failReport_label
             // 
@@ -376,7 +376,7 @@
             this.failRadio_groupBox.Location = new System.Drawing.Point(15, 436);
             this.failRadio_groupBox.Name = "failRadio_groupBox";
             this.failRadio_groupBox.Size = new System.Drawing.Size(155, 70);
-            this.failRadio_groupBox.TabIndex = 27;
+            this.failRadio_groupBox.TabIndex = 14;
             this.failRadio_groupBox.TabStop = false;
             // 
             // failGreaterThan_radio
@@ -385,7 +385,7 @@
             this.failGreaterThan_radio.Location = new System.Drawing.Point(6, 42);
             this.failGreaterThan_radio.Name = "failGreaterThan_radio";
             this.failGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
-            this.failGreaterThan_radio.TabIndex = 13;
+            this.failGreaterThan_radio.TabIndex = 16;
             this.failGreaterThan_radio.Text = "Greater Than or Equal To";
             this.failGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
@@ -396,7 +396,7 @@
             this.failLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.failLessThan_radio.Name = "failLessThan_radio";
             this.failLessThan_radio.Size = new System.Drawing.Size(133, 17);
-            this.failLessThan_radio.TabIndex = 12;
+            this.failLessThan_radio.TabIndex = 15;
             this.failLessThan_radio.TabStop = true;
             this.failLessThan_radio.Text = "Less Than or Equal To";
             this.failLessThan_radio.UseVisualStyleBackColor = true;
@@ -418,7 +418,7 @@
             this.passRadio_groupBox.Location = new System.Drawing.Point(15, 542);
             this.passRadio_groupBox.Name = "passRadio_groupBox";
             this.passRadio_groupBox.Size = new System.Drawing.Size(155, 70);
-            this.passRadio_groupBox.TabIndex = 28;
+            this.passRadio_groupBox.TabIndex = 19;
             this.passRadio_groupBox.TabStop = false;
             // 
             // passGreaterThan_radio
@@ -427,7 +427,7 @@
             this.passGreaterThan_radio.Location = new System.Drawing.Point(6, 42);
             this.passGreaterThan_radio.Name = "passGreaterThan_radio";
             this.passGreaterThan_radio.Size = new System.Drawing.Size(146, 17);
-            this.passGreaterThan_radio.TabIndex = 13;
+            this.passGreaterThan_radio.TabIndex = 21;
             this.passGreaterThan_radio.Text = "Greater Than or Equal To";
             this.passGreaterThan_radio.UseVisualStyleBackColor = true;
             // 
@@ -438,7 +438,7 @@
             this.passLessThan_radio.Location = new System.Drawing.Point(6, 19);
             this.passLessThan_radio.Name = "passLessThan_radio";
             this.passLessThan_radio.Size = new System.Drawing.Size(133, 17);
-            this.passLessThan_radio.TabIndex = 12;
+            this.passLessThan_radio.TabIndex = 20;
             this.passLessThan_radio.TabStop = true;
             this.passLessThan_radio.Text = "Less Than or Equal To";
             this.passLessThan_radio.UseVisualStyleBackColor = true;
@@ -469,14 +469,14 @@
             this.passGrade_combo.Location = new System.Drawing.Point(176, 591);
             this.passGrade_combo.Name = "passGrade_combo";
             this.passGrade_combo.Size = new System.Drawing.Size(49, 21);
-            this.passGrade_combo.TabIndex = 30;
+            this.passGrade_combo.TabIndex = 22;
             // 
             // percentage_upDown
             // 
             this.percentage_upDown.Location = new System.Drawing.Point(176, 486);
             this.percentage_upDown.Name = "percentage_upDown";
             this.percentage_upDown.Size = new System.Drawing.Size(49, 20);
-            this.percentage_upDown.TabIndex = 31;
+            this.percentage_upDown.TabIndex = 17;
             // 
             // percentage_label
             // 
