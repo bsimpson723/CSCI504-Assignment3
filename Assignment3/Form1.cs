@@ -64,7 +64,7 @@ namespace Assignment3
                 .ThenBy(x => x.CourseNumber);
             if (!studentGrades.Any())
             {
-                builder.Append("Student has no grades recoded at this time.");
+                builder.Append("Student has no grades recoded at this time.\n");
             }
             else
             {
