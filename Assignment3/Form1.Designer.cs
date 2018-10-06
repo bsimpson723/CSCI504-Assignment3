@@ -201,6 +201,7 @@
             this.showAllPassReport_button.TabIndex = 10;
             this.showAllPassReport_button.Text = "Show Results";
             this.showAllPassReport_button.UseVisualStyleBackColor = true;
+            this.showAllPassReport_button.Click += new System.EventHandler(this.showAllPassReport_button_Click);
             // 
             // showAllFailReport_button
             // 
