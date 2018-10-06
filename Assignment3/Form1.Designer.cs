@@ -181,6 +181,7 @@
             this.showGradeReportCourse_button.TabIndex = 8;
             this.showGradeReportCourse_button.Text = "Show Results";
             this.showGradeReportCourse_button.UseVisualStyleBackColor = true;
+            this.showGradeReportCourse_button.Click += new System.EventHandler(this.showGradeReportCourse_button_Click);
             // 
             // showFailedByMajorReport_button
             // 
@@ -190,6 +191,7 @@
             this.showFailedByMajorReport_button.TabIndex = 9;
             this.showFailedByMajorReport_button.Text = "Show Results";
             this.showFailedByMajorReport_button.UseVisualStyleBackColor = true;
+            this.showFailedByMajorReport_button.Click += new System.EventHandler(this.showFailedByMajorReport_button_Click);
             // 
             // showAllPassReport_button
             // 
@@ -208,6 +210,7 @@
             this.showAllFailReport_button.TabIndex = 11;
             this.showAllFailReport_button.Text = "Show Results";
             this.showAllFailReport_button.UseVisualStyleBackColor = true;
+            this.showAllFailReport_button.Click += new System.EventHandler(this.showAllFailReport_button_Click);
             // 
             // threshLessThan_radio
             // 
