@@ -126,7 +126,7 @@ namespace Assignment3
         private bool validateCourseEntry(string course)
         {
             string[] words = course.Split(' ');
-            if (words.Length < 2)
+            if (words.Length != 2)
             {
                 //print error if input is not formatted correctly
                 queryResult_textBox.Text = string.Format("'{0}' doesn't follow required format.", course);
