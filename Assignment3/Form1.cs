@@ -1,4 +1,11 @@
-﻿using System;
+/*
+ * CSCI 504: Programming principles in .NET
+ * Assignment 3
+ * Benjamin Simpson - Z100820
+ * Xueqiong Li - z1785226
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +25,8 @@ namespace Assignment3
             InitializeComponent();
             LoadData();
         }
-
+        
+        // Loads major combobox
         private void LoadData()
         {
             foreach (string mj in Program.m_majors)
@@ -27,6 +35,7 @@ namespace Assignment3
             }
         }
 
+        // shows grade reports for the input student
         private void showGradeReportStudent_button_Click(object sender, EventArgs e)
         {
             //If the user didn't enter a Z-ID display error and return
@@ -81,6 +90,7 @@ namespace Assignment3
             queryResult_textBox.Text = builder.ToString();
         }
 
+        // shows the grade threshold for the input course
         private void showGradeThresh_button_Click(object sender, EventArgs e)
         {
             if (validateCourseEntry(threshCourse_textBox.Text))
@@ -135,6 +145,7 @@ namespace Assignment3
             }
         }
 
+        // show failed grades for selected major in one course
         private void showFailedByMajorReport_button_Click(object sender, EventArgs e)
         {
             // check whether selected a major
@@ -192,6 +203,7 @@ namespace Assignment3
             queryResult_textBox.Text = builder.ToString();
         }
 
+        // shows the grade reports for one course
         private void showGradeReportCourse_button_Click(object sender, EventArgs e)
         {
             // check whether typed course is valid
@@ -234,6 +246,7 @@ namespace Assignment3
             queryResult_textBox.Text = builder.ToString();
         }
         
+        // shows the courses having failed percentage greater than or less than input percentage
         private void showAllFailReport_button_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
@@ -298,6 +311,7 @@ namespace Assignment3
             queryResult_textBox.Text = builder.ToString();
         }
 
+        // show pass report for all courses
         private void showAllPassReport_button_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
@@ -377,6 +391,7 @@ namespace Assignment3
         }
 
         #region Utility Functions
+        // private method validating the course entry
         private bool validateCourseEntry(string course)
         {
             if (course.Length == 0)
