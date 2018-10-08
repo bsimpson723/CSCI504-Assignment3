@@ -93,11 +93,11 @@ namespace Assignment3
         // shows the grade threshold for the input course
         private void showGradeThresh_button_Click(object sender, EventArgs e)
         {
-            if (validateCourseEntry(threshCourse_textBox.Text))
+            if (validateCourseEntry(threshCourse_textBox.Text.ToUpper()))
             {
                 var builder = new StringBuilder();
                 string[] words = threshCourse_textBox.Text.Split(' ');
-                var reportTitle = string.Format("Grade Threshold Report for ({0} {1})", words[0], words[1]);
+                var reportTitle = string.Format("Grade Threshold Report for ({0} {1})", words[0].ToUpper(), words[1]);
                 builder.Append(reportTitle);
                 builder.Append(Environment.NewLine);
                 builder.Append("-------------------------------------------------------------------------");
@@ -112,7 +112,7 @@ namespace Assignment3
                 if (threshLessThan_radio.Checked)
                 {
                     grades = Program.m_studentGrades.ToList()
-                        .FindAll(x => x.DepartmentCode == words[0] &&
+                        .FindAll(x => x.DepartmentCode == words[0].ToUpper() &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
                                       Array.IndexOf(m_gradeArray, x.Grade) >= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
@@ -122,7 +122,7 @@ namespace Assignment3
                 else
                 {
                     grades = Program.m_studentGrades.ToList()
-                        .FindAll(x => x.DepartmentCode == words[0] &&
+                        .FindAll(x => x.DepartmentCode == words[0].ToUpper() &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
                                       Array.IndexOf(m_gradeArray, x.Grade) <= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
@@ -156,14 +156,14 @@ namespace Assignment3
             }
 
             // check whether typed course is valid
-            if (!validateCourseEntry(failedByMajorCourse_textBox.Text))
+            if (!validateCourseEntry(failedByMajorCourse_textBox.Text.ToUpper()))
             {
                 return;
             }
 
             //Get List and Build String for query results box
             var builder = new StringBuilder();
-            var failMajorReportTitle = String.Format("Fail Report of Majors ({0}) in {1}", major_combo.SelectedItem, failedByMajorCourse_textBox.Text);
+            var failMajorReportTitle = String.Format("Fail Report of Majors ({0}) in {1}", major_combo.SelectedItem, failedByMajorCourse_textBox.Text.ToUpper());
             builder.Append(failMajorReportTitle);
             builder.Append(Environment.NewLine);
             builder.Append("-------------------------------------------------------------------------");
@@ -207,14 +207,14 @@ namespace Assignment3
         private void showGradeReportCourse_button_Click(object sender, EventArgs e)
         {
             // check whether typed course is valid
-            if (!validateCourseEntry(gradeReportByCourseInput_textBox.Text))
+            if (!validateCourseEntry(gradeReportByCourseInput_textBox.Text.ToUpper()))
             {
                 return;
             }
 
             //Get List and Build String for query results box
             var builder = new StringBuilder();
-            var failMajorReportTitle = String.Format("Grade Report for ({0})", gradeReportByCourseInput_textBox.Text);
+            var failMajorReportTitle = String.Format("Grade Report for ({0})", gradeReportByCourseInput_textBox.Text.ToUpper());
             builder.Append(failMajorReportTitle);
             builder.Append(Environment.NewLine);
             builder.Append("-------------------------------------------------------------------------");
