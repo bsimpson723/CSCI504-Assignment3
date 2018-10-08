@@ -270,6 +270,7 @@ namespace Assignment3
             this.threshGrade_combo.Name = "threshGrade_combo";
             this.threshGrade_combo.Size = new System.Drawing.Size(49, 21);
             this.threshGrade_combo.TabIndex = 6;
+            this.threshGrade_combo.SelectedIndex = 0;
             // 
             // threshGrade_label
             // 
@@ -477,6 +478,7 @@ namespace Assignment3
             this.passGrade_combo.Name = "passGrade_combo";
             this.passGrade_combo.Size = new System.Drawing.Size(49, 21);
             this.passGrade_combo.TabIndex = 22;
+            this.passGrade_combo.SelectedIndex = 0;
             // 
             // percentage_upDown
             // 
