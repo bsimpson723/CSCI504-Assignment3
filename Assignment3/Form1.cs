@@ -12,6 +12,7 @@ namespace Assignment3
 {
     public partial class Form1 : Form
     {
+        private string[] m_gradeArray = new string[] {"A", "A-", "B+", "B", "B-", "C++", "C", "C-", "D", "F"};
         public Form1()
         {
             InitializeComponent();
@@ -63,7 +64,7 @@ namespace Assignment3
                 .ThenBy(x => x.CourseNumber);
             if (!studentGrades.Any())
             {
-                builder.Append("Student has no grades recoded at this time.");
+                builder.Append("Student has no grades recoded at this time.\n");
             }
             else
             {
@@ -91,21 +92,29 @@ namespace Assignment3
                 builder.Append(Environment.NewLine);
                 builder.Append("-------------------------------------------------------------------------");
                 builder.Append(Environment.NewLine);
+
+                //get index and use it as comparison to index of m_gradeArray
+                var selectedGrade = threshGrade_combo.SelectedIndex;
+
                 var grades = new List<StudentGrade>();
+
+                //Get all student grades below the given threshold
                 if (threshLessThan_radio.Checked)
                 {
                     grades = Program.m_studentGrades.ToList()
                         .FindAll(x => x.DepartmentCode == words[0] &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
-                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) >= 0)
+                                      Array.IndexOf(m_gradeArray, x.Grade) >= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
                 }
+
+                //OR get all student grades above the given threshold
                 else
                 {
                     grades = Program.m_studentGrades.ToList()
                         .FindAll(x => x.DepartmentCode == words[0] &&
                                       x.CourseNumber == Convert.ToUInt64(words[1]) &&
-                                      x.Grade.CompareTo(threshGrade_combo.SelectedItem) <= 0)
+                                      Array.IndexOf(m_gradeArray, x.Grade) <= selectedGrade)
                         .OrderBy(x => x.ZId).ToList();
                 }
 
@@ -119,31 +128,13 @@ namespace Assignment3
                     builder.Append(Environment.NewLine);
                 }
 
+                builder.Append(Environment.NewLine);
+                builder.Append("### END RESULTS ###");
+
                 queryResult_textBox.Text = builder.ToString();
             }
         }
 
-        private bool validateCourseEntry(string course)
-        {
-            string[] words = course.Split(' ');
-            if (words.Length != 2)
-            {
-                //print error if input is not formatted correctly
-                queryResult_textBox.Text = string.Format("'{0}' doesn't follow required format.", course);
-                return false;
-            }
-            Course foundCourse = Program.m_courses.ToList().Find(x =>
-                x.DepartmentCode.ToUpper() == words[0].ToUpper() && x.CourseNumber == Convert.ToUInt64(words[1]));
-            // check whether found the course
-            if (foundCourse == null)
-            {
-                queryResult_textBox.Text = string.Format("Course {0} does not exist.", course);
-                return false;
-            }
-
-            return true;
-        }
-        
         private void showFailedByMajorReport_button_Click(object sender, EventArgs e)
         {
             // check whether selected a major
@@ -306,5 +297,112 @@ namespace Assignment3
             // print appended stringbuilder to textbox
             queryResult_textBox.Text = builder.ToString();
         }
+
+        private void showAllPassReport_button_Click(object sender, EventArgs e)
+        {
+            var builder = new StringBuilder();
+            // check if selected less than or greater than and add appropriate title to string builder
+            if (passLessThan_radio.Checked)
+            {
+                var passLessTitle = String.Format("Pass Percentage (<={0}) Report for Classes.", passGrade_combo.SelectedItem);
+                builder.Append(passLessTitle);
+            }
+            else if (passGreaterThan_radio.Checked)
+            {
+                var passGreaterTitle = String.Format("Pass Percentage (>={0}) Report for Classes.", passGrade_combo.SelectedItem);
+                builder.Append(passGreaterTitle);
+            }
+            else
+            {
+                queryResult_textBox.Text = "Error: Please select either greater than or less than.";
+                return;
+            }
+
+            builder.Append(Environment.NewLine);
+            builder.Append("-------------------------------------------------------------------------");
+            builder.Append(Environment.NewLine);
+
+            //selected index used for comparison into getIndex of grade array
+            var selectedGrade = passGrade_combo.SelectedIndex;
+
+            // get the list of passing grades LESS THAN threshold
+            if (passLessThan_radio.Checked)
+            {
+                var passReport = from grades in Program.m_studentGrades
+                    orderby grades.DepartmentCode, grades.CourseNumber
+                    group grades by new { courses = grades.DepartmentCode + "-" + grades.CourseNumber } into grades2
+                    select new { grades2.Key.courses, totalCount = grades2.Count(), passCount = grades2.Where(x => Array.IndexOf(m_gradeArray, x.Grade) >= selectedGrade && x.Grade != "F").Count() };
+
+                if (!passReport.Any())
+                {
+                    builder.Append("No courses matched the query criteria.");
+                }
+                else
+                {
+                    foreach (var grade in passReport)
+                    {
+                        var pct = (double)grade.passCount / grade.totalCount;
+                        builder.Append(String.Format("Out of {0} enrolled in {1}, {2} passed at or below this threshold ({3:0.00%})\n\n", grade.totalCount, grade.courses, grade.passCount, pct));
+                    }
+                }
+            }
+
+            //OR... get the list of passing grades ABOVE threshold
+            else if (passGreaterThan_radio.Checked)
+            {
+                var passReport = from grades in Program.m_studentGrades
+                    orderby grades.DepartmentCode, grades.CourseNumber
+                    group grades by new { courses = grades.DepartmentCode + "-" + grades.CourseNumber } into grades2
+                    select new { grades2.Key.courses, totalCount = grades2.Count(), passCount = grades2.Where(x => Array.IndexOf(m_gradeArray, x.Grade) <= selectedGrade && x.Grade != "F").Count() };
+
+                if (!passReport.Any())
+                {
+                    builder.Append("No courses matched the query criteria.");
+                }
+                else
+                {
+                    foreach (var grade in passReport)
+                    {
+                        var pct = (double)grade.passCount / grade.totalCount;
+                        builder.Append(String.Format("Out of {0} enrolled in {1}, {2} passed at or above this threshold ({3:0.00%})\n\n", grade.totalCount, grade.courses, grade.passCount, pct));
+                    }
+                }
+            }
+
+            builder.Append(Environment.NewLine);
+            builder.Append("### END RESULTS ###");
+
+            // print appended stringbuilder to textbox
+            queryResult_textBox.Text = builder.ToString();
+        }
+
+        #region Utility Functions
+        private bool validateCourseEntry(string course)
+        {
+            if (course.Length == 0)
+            {
+                //print error if no input is provided for the course
+                queryResult_textBox.Text = "Error: Please enter a course to search by.";
+                return false;
+            }
+            string[] words = course.Split(' ');
+            if (words.Length != 2)
+            {
+                //print error if input is not formatted correctly
+                queryResult_textBox.Text = string.Format("Error: '{0}' doesn't follow required format.", course);
+                return false;
+            }
+            Course foundCourse = Program.m_courses.ToList().Find(x =>
+                x.DepartmentCode.ToUpper() == words[0].ToUpper() && x.CourseNumber == Convert.ToUInt64(words[1]));
+            // check whether found the course
+            if (foundCourse == null)
+            {
+                queryResult_textBox.Text = string.Format("Course {0} does not exist.", course);
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
     }
 }
