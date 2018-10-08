@@ -320,7 +320,7 @@ namespace Assignment3
             this.major_combo.FormattingEnabled = true;
             this.major_combo.Location = new System.Drawing.Point(15, 259);
             this.major_combo.Name = "major_combo";
-            this.major_combo.Size = new System.Drawing.Size(121, 21);
+            this.major_combo.Size = new System.Drawing.Size(140, 21);
             this.major_combo.TabIndex = 9;
             this.major_combo.Text = "-- Select Major --";
             // 
