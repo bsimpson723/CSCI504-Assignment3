@@ -1,4 +1,11 @@
-﻿namespace Assignment3
+/*
+ * CSCI 504: Programming principles in .NET
+ * Assignment 3
+ * Benjamin Simpson - Z100820
+ * Xueqiong Li - z1785226
+*/
+
+namespace Assignment3
 {
     partial class Form1
     {
