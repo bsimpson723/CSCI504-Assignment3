@@ -1,4 +1,11 @@
-﻿using System;
+/*
+ * CSCI 504: Programming principles in .NET
+ * Assignment 3
+ * Benjamin Simpson - Z100820
+ * Xueqiong Li - z1785226
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +15,7 @@ namespace Assignment3
 {
     public class StudentGrade
     {
+        #region Properties
         private uint? courseNumber;
         private string departmentCode;
         public uint? ZId { get; set; }
@@ -42,7 +50,9 @@ namespace Assignment3
                 }
             }
         }
+        #endregion
 
+        // constructor
         public StudentGrade(uint? zId, string departmentCode, uint? courseNum, string grade)
         {
             ZId = zId;
@@ -51,6 +61,7 @@ namespace Assignment3
             Grade = grade;
         }
 
+        // orverride toString method
         public override string ToString()
         {
             return string.Format("z{0}  |  {1}-{2}  |  {3}", ZId, DepartmentCode, CourseNumber, Grade);
